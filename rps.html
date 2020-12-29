@@ -7,27 +7,61 @@
             //Goal: Play game of rock, paper scissors with computer, best of 5.
             //Create 3 variables: rock, paper, and scissors
             //User selects Rock, Paper, or Scissors. *Input 
-            function playerSelection {
-                prompt ("Type Rock, Paper, or Scissors")
-                
+            playerChoice()
+            function playerChoice() {
+                initPlayerSelection = prompt ("Rock, Paper, or Scissors?");
+               
+            }
+            playerSelection = initPlayerSelection.toLowerCase();
             //Computer randomly selects one of the three options
+            computerPlay()
             function computerPlay() {
                 let computerFist = Math.random() * 3; 
                 if (computerFist <= 1) {
-                console.log ("Rock");
+                computerSelection = ("rock");
             }
                 else if (computerFist <= 2) {
-                console.log ("Paper");
+                computerSelection = ("paper");
             }
                 else if (computerFist <= 3) {
-                console.log ("Scissors");
+                computerSelection = ("scissors");
             }
                 else {
-                console.log ("Hmmm something is not right...");
+                alert ("Hmmm something is not right...");
             }
             }
             
             //determine the winner(conditionals?)
+            if (playerSelection == "rock" && computerSelection == "rock") {
+                alert ("It's a tie!");
+            }
+            else if (playerSelection == "scissors" && computerSelection == "scissors"){
+                alert ("It's a tie!");
+            }
+            else if (playerSelection == "paper" && computerSelection == "paper") {
+                alert ("It's a tie!");
+            }
+            else if (playerSelection == "rock" && computerSelection == "paper") {
+                alert ("Oh no! The computer won. Paper beats Rock.");
+            }
+            else if (playerSelection == "rock" && computerSelection == "scissors") {
+                alert ("You won! Rock beats Scissors!");
+            }
+            else if (playerSelection == "paper" && computerSelection == "rock") {
+                alert ("You won! Paper beats Rock!");
+            }
+            else if (playerSelection == "paper" && computerSelection == "scissors") {
+                alert ("Oh no! The computer won. Scissors beats Paper.");
+            }
+            else if (playerSelection == "scissors" && computerSelection == "rock") {
+                alert ("Oh no! The computer won. Rock beats Scissors.");
+            }
+            else if (playerSelection == "scissors" && computerSelection == "paper") {
+                alert ("You won! Scissors beats Paper!");
+            }
+            else {
+                alert (`I don't think it's spelled that way...`);
+            }
             //let user know who won *Output
             //store result in scoreboard (2 separate scores)
             //repeat until either human or computer reaches 5, output result, and stop loop
