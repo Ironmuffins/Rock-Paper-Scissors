@@ -6,7 +6,10 @@
         <script>
             //Goal: Play game of rock, paper scissors with computer, best of 5.
             //Create 3 variables: rock, paper, and scissors
-            //User selects Rock, Paper, or Scissors. *Input 
+            //store result in scoreboard (2 separate scores)
+            let computerScore = 0
+            let playerScore = 0
+            //User selects Rock, Paper, or Scissors. *Input
             playerChoice()
             function playerChoice() {
                 initPlayerSelection = prompt ("Rock, Paper, or Scissors?");
@@ -31,9 +34,11 @@
             }
             }
             
-            //determine the winner(conditionals?)
+            //determine the winner and let user know who won
+            gameRules()
+            function gameRules() {
             if (playerSelection == "rock" && computerSelection == "rock") {
-                alert ("It's a tie!");
+                alert ("It's a tie!");                
             }
             else if (playerSelection == "scissors" && computerSelection == "scissors"){
                 alert ("It's a tie!");
@@ -43,31 +48,63 @@
             }
             else if (playerSelection == "rock" && computerSelection == "paper") {
                 alert ("Oh no! The computer won. Paper beats Rock.");
+                computerScore = computerScore + 1;
             }
             else if (playerSelection == "rock" && computerSelection == "scissors") {
                 alert ("You won! Rock beats Scissors!");
+                playerScore = playerScore + 1;
             }
             else if (playerSelection == "paper" && computerSelection == "rock") {
                 alert ("You won! Paper beats Rock!");
+                playerScore = playerScore + 1;
             }
             else if (playerSelection == "paper" && computerSelection == "scissors") {
                 alert ("Oh no! The computer won. Scissors beats Paper.");
+                computerScore = computerScore + 1;
             }
             else if (playerSelection == "scissors" && computerSelection == "rock") {
                 alert ("Oh no! The computer won. Rock beats Scissors.");
+                computerScore = computerScore + 1;
             }
             else if (playerSelection == "scissors" && computerSelection == "paper") {
                 alert ("You won! Scissors beats Paper!");
+                playerScore = playerScore + 1;
             }
             else {
                 alert (`I don't think it's spelled that way...`);
             }
-            //let user know who won *Output
-            //store result in scoreboard (2 separate scores)
+            }
+            
             //repeat until either human or computer reaches 5, output result, and stop loop
+            playRound()
+            function playRound() {
+                playerChoice();
+                computerPlay();
+                gameRules();
+            }
+            game()
+            function game() {
+                playRound();
+                playRound();
+                playRound();
+            }
+
+            //Give a report at the end of who won
+            if (playerScore > computerScore) {
+                alert ("You beat the computer " + playerScore + " to " + computerScore);
+            }
+            else if (computerScore > playerScore) {
+                alert ("Oh no! The computer beat you " + computerScore + " to " + playerScore);
+            }
+            else if (playerScore == computerScore) {
+                alert (`It's a tie! ` + playerScore + " to " + computerScore);
+            }
+            else {
+                console.log ("There should have been a winner out of 5, something went wrong")
+            }
             //
             //
-            //                
+            //          
         </script>
     </head>
     <body>
