@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>
+            Rock, Paper, Scissors
+        </title>
+        <script>
+            //Goal: Play game of rock, paper scissors with computer, best of 5.
+            //store result in scoreboard (2 separate scores)
+            let computerScore = 0
+            let playerScore = 0
+            //user selects Rock, Paper, or Scissors. *Input. 
+            playerChoice()
+            function playerChoice() {
+                initPlayerSelection = prompt ("Rock, Paper, or Scissors?"); 
+            //makes user input case-insensitve 
+            playerSelection = initPlayerSelection.toLowerCase();  
+            }
+          
+            //computer randomly selects one of the three options
+            computerPlay()
+            function computerPlay() {
+                let computerFist = Math.random() * 3; 
+                if (computerFist <= 1) {
+                computerSelection = ("rock");
+            }
+                else if (computerFist <= 2) {
+                computerSelection = ("paper");
+            }
+                else if (computerFist <= 3) {
+                computerSelection = ("scissors");
+            }
+                else {
+                console.log ("Hmmm something is not right...");
+            }
+            }
+            //determine the winner, let user know who won the round, and add one score to the winner
+            gameRules()
+            function gameRules() {
+            if (playerSelection == "rock" && computerSelection == "rock") {
+                alert ("It's a tie!");                
+            }
+            else if (playerSelection == "scissors" && computerSelection == "scissors"){
+                alert ("It's a tie!");
+            }
+            else if (playerSelection == "paper" && computerSelection == "paper") {
+                alert ("It's a tie!");
+            }
+            else if (playerSelection == "rock" && computerSelection == "paper") {
+                alert ("Oh no! The computer won. Paper beats Rock.");
+                computerScore = computerScore + 1;
+            }
+            else if (playerSelection == "rock" && computerSelection == "scissors") {
+                alert ("You won! Rock beats Scissors!");
+                playerScore = playerScore + 1;
+            }
+            else if (playerSelection == "paper" && computerSelection == "rock") {
+                alert ("You won! Paper beats Rock!");
+                playerScore = playerScore + 1;
+            }
+            else if (playerSelection == "paper" && computerSelection == "scissors") {
+                alert ("Oh no! The computer won. Scissors beats Paper.");
+                computerScore = computerScore + 1;
+            }
+            else if (playerSelection == "scissors" && computerSelection == "rock") {
+                alert ("Oh no! The computer won. Rock beats Scissors.");
+                computerScore = computerScore + 1;
+            }
+            else if (playerSelection == "scissors" && computerSelection == "paper") {
+                alert ("You won! Scissors beats Paper!");
+                playerScore = playerScore + 1;
+            }
+            else {
+                alert (`I don't think it's spelled that way...`);
+            }
+            }
+            //repeat until 5 rounds are played (May change to 5 to win)
+            function playRound() {
+                playerChoice();
+                computerPlay();
+                gameRules();
+            }
+            game()
+            function game() {
+                playRound();
+                playRound();
+                playRound();
+                playRound();
+            }
+            //gives a report of who won the game at the end and by how much
+            if (playerScore > computerScore) {
+                alert ("You beat the computer " + playerScore + " to " + computerScore);
+            }
+            else if (computerScore > playerScore) {
+                alert ("Oh no! The computer beat you " + computerScore + " to " + playerScore);
+            }
+            else if (playerScore == computerScore) {
+                alert (`It's a tie! ` + playerScore + " to " + computerScore);
+            }
+            else {
+                console.log ("There should have been a winner out of 5, something went wrong")
+            }            
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
