@@ -5,18 +5,18 @@
         </title>
         <script>
             //Goal: Play game of rock, paper scissors with computer, best of 5.
-            //Create 3 variables: rock, paper, and scissors
             //store result in scoreboard (2 separate scores)
             let computerScore = 0
             let playerScore = 0
-            //User selects Rock, Paper, or Scissors. *Input
+            //user selects Rock, Paper, or Scissors. *Input. 
             playerChoice()
             function playerChoice() {
-                initPlayerSelection = prompt ("Rock, Paper, or Scissors?");
-               
+                initPlayerSelection = prompt ("Rock, Paper, or Scissors?"); 
+            //makes user input case-insensitve 
+            playerSelection = initPlayerSelection.toLowerCase();  
             }
-            playerSelection = initPlayerSelection.toLowerCase();
-            //Computer randomly selects one of the three options
+          
+            //computer randomly selects one of the three options
             computerPlay()
             function computerPlay() {
                 let computerFist = Math.random() * 3; 
@@ -30,11 +30,10 @@
                 computerSelection = ("scissors");
             }
                 else {
-                alert ("Hmmm something is not right...");
+                console.log ("Hmmm something is not right...");
             }
             }
-            
-            //determine the winner and let user know who won
+            //determine the winner, let user know who won the round, and add one score to the winner
             gameRules()
             function gameRules() {
             if (playerSelection == "rock" && computerSelection == "rock") {
@@ -74,8 +73,7 @@
                 alert (`I don't think it's spelled that way...`);
             }
             }
-            
-            //repeat until either human or computer reaches 5, output result, and stop loop
+            //repeat until 5 rounds are played (May change to 5 to win)
             function playRound() {
                 playerChoice();
                 computerPlay();
@@ -88,8 +86,7 @@
                 playRound();
                 playRound();
             }
-
-            //Give a report at the end of who won
+            //gives a report of who won the game at the end and by how much
             if (playerScore > computerScore) {
                 alert ("You beat the computer " + playerScore + " to " + computerScore);
             }
@@ -101,10 +98,7 @@
             }
             else {
                 console.log ("There should have been a winner out of 5, something went wrong")
-            }
-            //
-            //
-            //          
+            }            
         </script>
     </head>
     <body>
