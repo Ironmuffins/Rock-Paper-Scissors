@@ -76,7 +76,6 @@
             }
             
             //repeat until either human or computer reaches 5, output result, and stop loop
-            playRound()
             function playRound() {
                 playerChoice();
                 computerPlay();
@@ -84,6 +83,7 @@
             }
             game()
             function game() {
+                playRound();
                 playRound();
                 playRound();
                 playRound();
