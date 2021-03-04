@@ -1,5 +1,5 @@
 New features:
-Centered content
+Re-wrote conditional coding to be more logically consistent and less repetetive.
 
 New Bug fixes:
 None.
